@@ -15,11 +15,13 @@ public class OneDayMatchService implements OneDayMatchServiceInterface {
 
         List<Match> listOfMatches = new ArrayList<>();
 
-        Match match = new Match("India", "Austrailia", 350);
-        Match match2 = new Match("England", "Newzealand", 250);
+//        Match match = new Match("India", "Australia", 350);
+//        Match match2 = new Match("England", "Newzealand", 250);
 
-        listOfMatches.add(match);
-        listOfMatches.add(match2);
+//        listOfMatches.add(match);
+//        listOfMatches.add(match2);
+
+
 
         return listOfMatches;
     }
