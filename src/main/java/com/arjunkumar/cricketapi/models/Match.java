@@ -6,30 +6,25 @@ public class Match {
 
     // Fields ..........................................
 
-    private String teamA;
-    private String teamB;
-    private int scoreA;
-    private int scoreB;
-    private float overA;
-    private float overB;
-    private int wicketA;
-    private int wicketB;
+    private String teamA = "";
+    private String teamB = "";
+    private String scoreA = "";
+    private String scoreB = "";
+    private String overA = "";
+    private String overB = "";
 
 
     // Constructors.....................................
 
     public Match(){};
 
-    public Match(String teamA, String teamB, int scoreA, int scoreB, float overA,
-                 float overB, int wicketA, int wicketB) {
+    public Match(String teamA, String teamB, String scoreA, String scoreB, String overA, String overB) {
         this.teamA = teamA;
         this.teamB = teamB;
         this.scoreA = scoreA;
         this.scoreB = scoreB;
         this.overA = overA;
         this.overB = overB;
-        this.wicketA = wicketA;
-        this.wicketB = wicketB;
     }
 
     // Getters and Setters..............................
@@ -50,51 +45,35 @@ public class Match {
         this.teamB = teamB;
     }
 
-    public int getScoreA() {
+    public String getScoreA() {
         return scoreA;
     }
 
-    public void setScoreA(int scoreA) {
+    public void setScoreA(String scoreA) {
         this.scoreA = scoreA;
     }
 
-    public int getScoreB() {
+    public String getScoreB() {
         return scoreB;
     }
 
-    public void setScoreB(int scoreB) {
+    public void setScoreB(String scoreB) {
         this.scoreB = scoreB;
     }
 
-    public float getOverA() {
+    public String getOverA() {
         return overA;
     }
 
-    public void setOverA(float overA) {
+    public void setOverA(String overA) {
         this.overA = overA;
     }
 
-    public float getOverB() {
+    public String getOverB() {
         return overB;
     }
 
-    public void setOverB(float overB) {
+    public void setOverB(String overB) {
         this.overB = overB;
-    }
-
-    public int getWicketA() {
-        return wicketA;
-    }
-
-    public void setWicketA(int wicketA) {
-        this.wicketA = wicketA;
-    }
-
-    public int getWicketB() {
-        return wicketB;
-    }
-
-    public void setWicketB(int wicketB) {
-        this.wicketB = wicketB;
     }
 }

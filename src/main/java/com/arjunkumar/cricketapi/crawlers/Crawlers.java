@@ -1,8 +1,14 @@
 package com.arjunkumar.cricketapi.crawlers;
 
 import com.arjunkumar.cricketapi.models.Match;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,20 +16,37 @@ import java.util.List;
 
 public class Crawlers {
 
+//    private static final Logger logger = LoggerFactory.getLogger(Crawlers.class);
+
     public static List<Match> getCurrentMatches() {
         List<Match> listOfMatches = new ArrayList<>();
 
-        String url = "https://www.cricbuzz.com/cricket-match/live-scores";
+        String url = "https://www.espncricinfo.com/scores";
 
-
-//        Match match = new Match("India", "Australia", 350);
-//        Match match2 = new Match("England", "Newzealand", 250);
-
-//        listOfMatches.add(match);
-//        listOfMatches.add(match2);
 
         try {
             Document doc = Jsoup.connect(url).get();
+            Elements elements = doc.select("ul.cscore_competitors");
+
+            for (Element e : elements) {
+                Element eleA = e.selectFirst("li.cscore_item.cscore_item--away");
+                Element eleB = e.selectFirst("li.cscore_item.cscore_item--home");
+
+                Element teamA = eleA.selectFirst(".cscore_name.cscore_name--long");
+                Element scoreA = eleA.selectFirst(".cscore_score");
+                Element overA = eleA.selectFirst(".cscore_overs");
+
+                Element teamB = eleB.selectFirst(".cscore_name.cscore_name--long");
+                Element scoreB = eleB.selectFirst(".cscore_score");
+                Element overB = eleB.selectFirst(".cscore_overs");
+
+
+                Match match = new Match(teamA.text(), teamB.text(), scoreA.text(), scoreB.text(),
+                        overA == null ? "" : overA.text(), overB == null ? "" : overB.text());
+
+                listOfMatches.add(match);
+
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
