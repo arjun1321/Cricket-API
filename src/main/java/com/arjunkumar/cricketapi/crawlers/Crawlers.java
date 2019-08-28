@@ -15,6 +15,10 @@ import java.util.List;
 
 public class Crawlers {
 
+    public static final int TEST_MATCH = 0;
+    public static final int ONE_DAY_MATCH = 1;
+    public static final int T20_MATCH = 2;
+
 //    private static final Logger logger = LoggerFactory.getLogger(Crawlers.class);
 
     public static List<Match> getCurrentMatches() {
@@ -54,7 +58,7 @@ public class Crawlers {
         return listOfMatches;
     }
 
-    public static List<Ranks> getCurrentTestTeamRankings() {
+    public static List<Ranks> getCurrentMatchTypeRankings(int matchType) {
         List<Ranks> listOfTeams = new ArrayList<>();
 
         String url = "http://www.espncricinfo.com/rankings/content/page/211271.html";
@@ -63,7 +67,7 @@ public class Crawlers {
             Document doc = Jsoup.connect(url).get();
             Elements elements = doc.select("table");
 
-            Element testTable = elements.get(0);
+            Element testTable = elements.get(matchType);
             Elements testRows = testTable.select("tr");
             testRows.remove(0);
 
@@ -82,4 +86,5 @@ public class Crawlers {
 
         return listOfTeams;
     }
+
 }

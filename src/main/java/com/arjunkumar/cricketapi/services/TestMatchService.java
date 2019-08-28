@@ -13,6 +13,6 @@ public class TestMatchService implements TestMatchServiceInterface {
 
     @Override
     public List<Ranks> getCurrentTestTeamRankings() {
-        return Crawlers.getCurrentTestTeamRankings();
+        return Crawlers.getCurrentMatchTypeRankings(Crawlers.TEST_MATCH);
     }
 }
