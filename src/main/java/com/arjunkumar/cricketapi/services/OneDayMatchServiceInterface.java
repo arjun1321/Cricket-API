@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface OneDayMatchServiceInterface {
 
-    public List<Match> getCurrentMatches() ;
+    List<Match> getCurrentMatches() ;
 }
