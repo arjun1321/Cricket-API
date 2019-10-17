@@ -11,7 +11,7 @@ import lombok.*;
 public class Ranks {
 
     private String team;
-    private int rank;
+    private String rank;
     private String rating;
     private String points;
     private String matches;
